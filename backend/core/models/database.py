@@ -2,6 +2,7 @@ from sqlalchemy import create_engine, Column, String, Boolean, DateTime, Foreign
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
+from core.settings import database_url
 import datetime
 
 Base = declarative_base()
@@ -38,5 +39,5 @@ class Password(Base):
     user = relationship("User", back_populates="passwords")
 
 # Create an engine and bind it to the Base
-engine = create_engine('postgresql://username:password@localhost:5432/mydatabase')
+engine = create_engine(database_url)
 Base.metadata.create_all(engine)

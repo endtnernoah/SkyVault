@@ -1,0 +1,14 @@
+version: '2.21'
+
+services:
+  postgres:
+    image: postgres:13
+    container_name: skyvault_postgres_container
+    environment:
+      POSTGRES_USER: skyvault
+      POSTGRES_PASSWORD: bvuqGIciWQbN8D7I3VQiOi
+      POSTGRES_DB: vault
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data:/var/lib/postgresql/data
