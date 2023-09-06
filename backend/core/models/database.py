@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine, Column, String, Boolean, DateTime, ForeignKey, UniqueConstraint
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import relationship
+from sqlalchemy.orm import relationship, sessionmaker
 from core.settings import database_url
 import datetime
 
@@ -41,3 +41,8 @@ class Password(Base):
 # Create an engine and bind it to the Base
 engine = create_engine(database_url)
 Base.metadata.create_all(engine)
+
+# Create a session and bind it to the engine
+Session = sessionmaker(bind=engine)
+session = Session()
+
