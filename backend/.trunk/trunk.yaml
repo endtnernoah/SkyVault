@@ -1,0 +1,19 @@
+version: 0.1
+cli:
+  version: 1.14.2
+plugins:
+  sources:
+    - id: trunk
+      ref: v1.2.2
+      uri: https://github.com/trunk-io/plugins
+runtimes:
+  enabled:
+    - python@3.10.8
+lint:
+  enabled:
+    - bandit@1.7.5
+    - black@23.7.0
+    - git-diff-check
+    - isort@5.12.0
+    - ruff@0.0.287
+    - trufflehog@3.54.3
